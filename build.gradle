@@ -15,6 +15,21 @@ repositories {
     mavenCentral()
 }
 
+def generated_dir ="$buildDir/jaxb"
+sourceSets {
+    generated {
+        java{
+            srcDir "$generated_dir"
+        }
+    }
+}
+
+// JAXB configuration holds classpath for running the JAXB XJC compiler
+configurations {
+    jaxb
+    test
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -29,7 +44,44 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // The next two dependencies are not necessary for generating code, only when running the code:
+    // Generated code depends on the JAXB API, which is removed from base Java in JDK 11, and therefore needs to be added
+    implementation "org.glassfish.jaxb:jaxb-runtime:4.0.1"
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0' // In JAXB v3, 'javax.xml.bind' was moved to 'jakarta.xml.bind'
+
+    jaxb 'org.glassfish.jaxb:jaxb-xjc:4.0.1'
+    jaxb "org.glassfish.jaxb:jaxb-runtime:4.0.1"
+
 }
+
+
+// Cookie cutter function for defining multiple XJC tasks
+def addXjcTask(taskName, schema, dest) {
+
+    // If you haven't already, create the generated output dir before running XJC or it will fail
+    file(dest).mkdirs()
+
+    // The main XJC task, calls XJCFacade which is the entry point of the XJC JAR
+    tasks.create(name: taskName, type: JavaExec) {
+        classpath configurations.jaxb
+        mainClass = 'com.sun.tools.xjc.XJCFacade'
+
+        // To explore available args, download the XJC JAR and run java -jar jaxb-xjc.jar --help
+        args schema, "-d", dest, "-no-header"
+    }
+}
+
+// Add all the XJC tasks you need
+addXjcTask("maven-xsd", "src/main/resources/xsd", "$generated_dir")
+
+
+tasks.register("generateSources") {
+    description "Generate Java sources fram XSD files"
+    dependsOn tasks.getByName("maven-xsd")
+}
+
 
 tasks.named('test') {
     useJUnitPlatform()

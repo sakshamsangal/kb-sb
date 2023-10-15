@@ -1,4 +1,9 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: msg
+    encoding: UTF-8
   datasource:
     password: root
     url: jdbc:mysql://localhost:3306/stud

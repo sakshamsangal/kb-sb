@@ -1,7 +1,7 @@
 package com.app.controller;
 
-import com.app.model.dto.ApplicationResponse;
-import com.app.model.dto.Student;
+import com.app.model.ApplicationResponse;
+import com.app.model.Student;
 import com.app.service.StudentService;
 import com.app.util.constant.Endpoint;
 import lombok.RequiredArgsConstructor;
