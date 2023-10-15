@@ -1,6 +1,4 @@
-/*
- * Copyright 2023 Thomson Reuters/ONESOURCE. All rights reserved.
- */
+
 package com.app.exception;
 
 import lombok.Getter;

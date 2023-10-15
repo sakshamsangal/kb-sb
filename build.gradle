@@ -54,6 +54,12 @@ dependencies {
     jaxb 'org.glassfish.jaxb:jaxb-xjc:4.0.1'
     jaxb "org.glassfish.jaxb:jaxb-runtime:4.0.1"
 
+    // map struct
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+
 }
 
 

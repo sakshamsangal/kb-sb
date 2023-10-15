@@ -26,17 +26,6 @@ public class StudentService {
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setFirstName(stud.getFirstName());
 
-
-//        if (StringUtils.equals(stud.getFirstName(), "1")) {
-//            throw new AppException("NOT_FOUND", ErrorMessage.msg1, HttpStatus.ACCEPTED);
-//        }
-//        if (StringUtils.equals(stud.getFirstName(), "2")) {
-//            throw new AppException("BAD_REQUEST", ErrorMessage.msg2, HttpStatus.BAD_REQUEST);
-//        }
-//        if (StringUtils.equals(stud.getFirstName(), "3")) {
-//            throw new AppException("INTERNAL_SERVER_ERROR", ErrorMessage.msg3, HttpStatus.ALREADY_REPORTED);
-//        }
-
         Student student1 = student.addStud(stud);
 
         studentRepository.save(studentEntity);

@@ -14,7 +14,8 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Util {
+public class XmlUtil {
+
     static void validateXmlFileAgainstXsd(String xsdPath, String xmlFilePath) throws IOException, SAXException {
         XmlErrorHandler xmlErrorHandler = new XmlErrorHandler();
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
