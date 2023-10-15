@@ -1,0 +1,60 @@
+openapi: 3.0.1
+info:
+  title: Student mgt system
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: It will manage student
+paths:
+  /student:
+    post:
+      tags:
+        - add-student
+      description: >
+        my description
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResponse'
+components:
+  schemas:
+    Student:
+      description: Response from getDocumentStatusAPI
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          pattern: ^(?!\s*$).+
+          example: tx123
+          description: my description
+        firstName:
+          type: string
+          pattern: ^(?!\s*$).+
+          example: Sample123
+          description: my description
+        lastName:
+          type: string
+          example: Sangal
+          description: my description
+    ApplicationResponse:
+      description: Response from getDocumentStatusAPI
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          pattern: ^(?!\s*$).+
+          example: tx123
+          description: my description
