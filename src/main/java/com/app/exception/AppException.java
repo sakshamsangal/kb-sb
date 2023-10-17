@@ -14,6 +14,8 @@ public class AppException extends RuntimeException {
     private final String message;
     private final HttpStatus httpStatus;
 
+    // todo proper logging format
+
     public AppException(String code, String message, HttpStatus httpStatus, final Throwable cause) {
         super(message, cause);
         this.code = code;

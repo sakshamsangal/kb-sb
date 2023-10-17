@@ -4,13 +4,13 @@ import com.app.model.ApplicationResponse;
 import com.app.model.Student;
 import com.app.service.StudentService;
 import com.app.util.constant.Endpoint;
+import io.micrometer.observation.annotation.Observed;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * This is a controller class
@@ -19,15 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1")
 @RequiredArgsConstructor
 @Slf4j
-public class StudentController {
+public class StudentController implements StudentControllerApi {
 
     private final StudentService studentService;
 
     @PostMapping(Endpoint.ADD_STUDENT)
-    public ResponseEntity<ApplicationResponse> addStudent(@RequestBody Student stud) {
+    @Override
+    public ResponseEntity<ApplicationResponse> addStudent(@Valid @RequestBody Student stud) {
          return ResponseEntity.ok()
                  .body(studentService.addStudent(stud));
 
+    }
+
+
+    @Observed(name = "get.micro")
+    @GetMapping("/micro")
+    public String micro() {
+        return "Welcome this endpoint is not secure";
     }
 }
 

@@ -11,3 +11,17 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+
+logging:
+  pattern:
+    console: "%-5level | %logger{0} | %msg%n"
