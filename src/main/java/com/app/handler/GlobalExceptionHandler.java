@@ -16,14 +16,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public final class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private final MessageSourceAccessor messageSourceAccessor;
+
     public GlobalExceptionHandler(MessageSource messageSource) {
         messageSourceAccessor = new MessageSourceAccessor(messageSource);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiError> exceptionHandler(final Exception e) {
+    public ResponseEntity<ApiError> exceptionHandler(Exception e) {
         log.error("Exception = {}", e.getMessage(), e);
-        final ApiError apiError = new ApiError();
+        ApiError apiError = new ApiError();
         apiError.setCode(HttpStatus.BAD_REQUEST.getReasonPhrase());
 
         String message = messageSourceAccessor.getMessage(ErrorMessage.code500);
@@ -33,9 +34,9 @@ public final class GlobalExceptionHandler extends ResponseEntityExceptionHandler
 
 
     @ExceptionHandler(AppException.class)
-    public ResponseEntity<Object> appExceptionHandler(final AppException e) {
+    public ResponseEntity<Object> appExceptionHandler(AppException e) {
         log.error("AppException = {}", e.getMessage(), e);
-        final ApiError apiError = new ApiError();
+        ApiError apiError = new ApiError();
         apiError.setCode(e.getCode());
 
         String message = messageSourceAccessor.getMessage(e.getMessage());
@@ -43,9 +44,6 @@ public final class GlobalExceptionHandler extends ResponseEntityExceptionHandler
 
         return new ResponseEntity<>(apiError, e.getHttpStatus());
     }
-
-
-
 
 
 }

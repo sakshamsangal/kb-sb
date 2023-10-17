@@ -86,10 +86,10 @@ public class XmlUtil {
         }
     }
 
-    public static void main(String[] args) {
-//        String foo = objectToXmlString(new BooksForm());
-        xmlFileToObject("books.xml");
-    }
+//    public static void main(String[] args) {
+////        String foo = objectToXmlString(new BooksForm());
+//        xmlFileToObject("books.xml");
+//    }
 
 
 }

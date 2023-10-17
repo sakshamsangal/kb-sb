@@ -24,6 +24,7 @@ public class StudentController implements StudentControllerApi {
     private final StudentService studentService;
 
     @PostMapping(Endpoint.ADD_STUDENT)
+    @Observed(name = "studentController.addStudent")
     @Override
     public ResponseEntity<ApplicationResponse> addStudent(@Valid @RequestBody Student stud) {
          return ResponseEntity.ok()
@@ -35,6 +36,9 @@ public class StudentController implements StudentControllerApi {
     @Observed(name = "get.micro")
     @GetMapping("/micro")
     public String micro() {
+        for (int i = 0; i < 10000; i++) {
+
+        }
         return "Welcome this endpoint is not secure";
     }
 }

@@ -13,7 +13,7 @@ public class PerformanceTrackerHandler implements ObservationHandler<Observation
 
     @Override
     public void onStart(Observation.Context context) {
-        log.info("execution started {}", context.getName());
+        log.info("execution start {}", context.getName());
         context.put("time", Instant.now());
     }
 
@@ -45,8 +45,8 @@ public class PerformanceTrackerHandler implements ObservationHandler<Observation
     @Override
     public void onStop(Observation.Context context) {
         Instant finish = Instant.now();
-        long time = Duration.between(context.get("time"), finish).toNanos();
-        log.info("execution stopped " + context.getName() + " duration " + time + "ns");
+        long time = Duration.between(context.get("time"), finish).toMillis();
+        log.info("execution end " + context.getName() + " duration " + time + "ms");
     }
 
 

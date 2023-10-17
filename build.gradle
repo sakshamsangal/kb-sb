@@ -64,7 +64,7 @@ dependencies {
 
 
     // for aspect oriented programming
-//    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 
 }
 
