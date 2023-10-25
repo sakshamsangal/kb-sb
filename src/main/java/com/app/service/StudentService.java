@@ -2,8 +2,8 @@ package com.app.service;
 
 
 import com.app.aspect.LogExecutionTime;
-import com.app.model.ApplicationResponse;
-import com.app.model.Student;
+import com.app.model.swagger.ApplicationResponse;
+import com.app.model.swagger.Student;
 import com.app.persistence.entity.StudentEntity;
 import com.app.persistence.repo.StudentRepository;
 import io.micrometer.observation.annotation.Observed;

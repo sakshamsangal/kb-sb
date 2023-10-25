@@ -1,8 +1,8 @@
 package com.app.controller;
 
 import com.app.property.AppProp;
-import com.app.model.ApplicationResponse;
-import com.app.model.Student;
+import com.app.model.swagger.ApplicationResponse;
+import com.app.model.swagger.Student;
 import com.app.service.StudentService;
 import com.app.util.constant.Endpoint;
 import io.micrometer.observation.annotation.Observed;

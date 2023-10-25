@@ -2,7 +2,7 @@ package com.app.mapper;
 
 import com.app.model.jaxb.books.BookForm;
 import com.app.model.jaxb.books.BooksForm;
-import com.app.model.Student;
+import com.app.model.swagger.Student;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

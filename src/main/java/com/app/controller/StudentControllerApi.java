@@ -1,7 +1,7 @@
 package com.app.controller;
 
-import com.app.model.ApplicationResponse;
-import com.app.model.Student;
+import com.app.model.swagger.ApplicationResponse;
+import com.app.model.swagger.Student;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

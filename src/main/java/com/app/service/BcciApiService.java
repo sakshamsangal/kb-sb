@@ -1,6 +1,6 @@
 package com.app.service;
 
-import com.app.model.Student;
+import com.app.model.swagger.Student;
 import com.app.property.BcciProp;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
