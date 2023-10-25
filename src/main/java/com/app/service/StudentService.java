@@ -2,18 +2,14 @@ package com.app.service;
 
 
 import com.app.aspect.LogExecutionTime;
-import com.app.bcci.service.AddStudent;
-import com.app.exception.AppException;
+import com.app.bcci.service.BookService;
 import com.app.model.ApplicationResponse;
 import com.app.model.Student;
 import com.app.persistence.entity.StudentEntity;
 import com.app.persistence.repo.StudentRepository;
-import com.app.util.constant.ErrorMessage;
 import io.micrometer.observation.annotation.Observed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class StudentService {
 
-    private final AddStudent student;
+    private final BookService student;
     private final StudentRepository studentRepository;
 
     @LogExecutionTime("saksham")

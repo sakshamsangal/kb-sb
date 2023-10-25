@@ -12,6 +12,9 @@ spring:
     hibernate:
       ddl-auto: update
 
+  config:
+    import: "optional:configserver:"
+
 
 management:
   endpoints:
@@ -26,3 +29,6 @@ logging:
   pattern:
     console: "%-5level | %-25.25logger{25} | %msg%n"
 #    console: "%-5level | %logger{0} | %msg%n"
+
+my:
+  name: saksham1

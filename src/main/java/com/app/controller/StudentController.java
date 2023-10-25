@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import com.app.config.AppYml;
 import com.app.model.ApplicationResponse;
 import com.app.model.Student;
 import com.app.service.StudentService;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Properties;
+
 /**
  * This is a controller class
  */
@@ -22,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController implements StudentControllerApi {
 
     private final StudentService studentService;
+    private final AppYml appYml;
 
     @PostMapping(Endpoint.ADD_STUDENT)
     @Observed(name = "studentController.addStudent")
@@ -29,17 +33,13 @@ public class StudentController implements StudentControllerApi {
     public ResponseEntity<ApplicationResponse> addStudent(@Valid @RequestBody Student stud) {
          return ResponseEntity.ok()
                  .body(studentService.addStudent(stud));
-
     }
 
 
     @Observed(name = "get.micro")
     @GetMapping("/micro")
     public String micro() {
-        for (int i = 0; i < 10000; i++) {
-
-        }
-        return "Welcome this endpoint is not secure";
+        return appYml.getMyName()+ " Welcome this endpoint is not secure";
     }
 }
 
