@@ -1,6 +1,6 @@
 package com.app.config;
 
-import com.app.aspect.PerformanceTrackerHandler;
+import com.app.handler.PerformanceTrackerHandler;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.aop.ObservedAspect;
 import org.springframework.context.annotation.Bean;

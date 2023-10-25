@@ -1,6 +1,7 @@
-package com.app.bcci.service;
+package com.app.service;
 
 import com.app.model.Student;
+import com.app.property.BcciProp;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -12,12 +13,15 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Slf4j
 @Service
 public class BookService {
-    public Student addStud(Student student) {
-        String url = "https://jsonplaceholder.typicode.com/posts";
 
-        WebClient webClient = WebClient.create();
+    private final WebClient webClient;
+
+    private final BcciProp bcciProp;
+
+    public Student addStud(Student student) {
+
         return webClient.post()
-                .uri(url)
+                .uri(bcciProp.getGetAllBooks())
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .bodyToMono(Student.class)

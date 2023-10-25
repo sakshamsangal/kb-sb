@@ -1,4 +1,4 @@
-package com.app.config;
+package com.app.property;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @Getter
 @Setter
 @RefreshScope
-public class AppYml {
+public class ConfigProp {
 
 
     @Value("${my.name}")

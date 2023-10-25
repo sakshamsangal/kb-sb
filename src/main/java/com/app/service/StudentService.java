@@ -2,7 +2,6 @@ package com.app.service;
 
 
 import com.app.aspect.LogExecutionTime;
-import com.app.bcci.service.BookService;
 import com.app.model.ApplicationResponse;
 import com.app.model.Student;
 import com.app.persistence.entity.StudentEntity;
@@ -26,9 +25,10 @@ public class StudentService {
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setFirstName(stud.getFirstName());
 
-        Student student1 = student.addStud(stud);
+//        Student student1 = student.addStud(stud);
 
         studentRepository.save(studentEntity);
-        return new ApplicationResponse(student1.getId());
+        return null;
+//        return new ApplicationResponse(student1.getId());
     }
 }

@@ -1,6 +1,6 @@
 package com.app.controller;
 
-import com.app.config.AppYml;
+import com.app.property.ConfigProp;
 import com.app.model.ApplicationResponse;
 import com.app.model.Student;
 import com.app.service.StudentService;
@@ -9,11 +9,8 @@ import io.micrometer.observation.annotation.Observed;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Properties;
 
 /**
  * This is a controller class
@@ -25,7 +22,7 @@ import java.util.Properties;
 public class StudentController implements StudentControllerApi {
 
     private final StudentService studentService;
-    private final AppYml appYml;
+    private final ConfigProp configProp;
 
     @PostMapping(Endpoint.ADD_STUDENT)
     @Observed(name = "studentController.addStudent")
@@ -39,7 +36,7 @@ public class StudentController implements StudentControllerApi {
     @Observed(name = "get.micro")
     @GetMapping("/micro")
     public String micro() {
-        return appYml.getMyName()+ " Welcome this endpoint is not secure";
+        return configProp.getMyName()+ " Welcome this endpoint is not secure";
     }
 }
 

@@ -32,3 +32,11 @@ logging:
 
 my:
   name: saksham1
+
+
+
+bcci:
+  url : http://localhost:3000
+  get:
+    all:
+      books: /books

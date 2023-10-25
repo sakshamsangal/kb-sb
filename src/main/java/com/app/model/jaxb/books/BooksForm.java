@@ -1,5 +1,5 @@
 
-package com.app.bcci.model.jaxb.books;
+package com.app.model.jaxb.books;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

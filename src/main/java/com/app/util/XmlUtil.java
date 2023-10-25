@@ -1,15 +1,12 @@
 package com.app.util;
 
 
-import com.app.bcci.model.jaxb.books.BooksForm;
-import com.app.bcci.model.jaxb.books.ObjectFactory;
+import com.app.model.jaxb.books.BooksForm;
+import com.app.model.jaxb.books.ObjectFactory;
 import jakarta.xml.bind.*;
-import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;

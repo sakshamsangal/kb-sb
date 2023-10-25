@@ -1,7 +1,7 @@
 package com.app.mapper;
 
-import com.app.bcci.model.jaxb.books.BookForm;
-import com.app.bcci.model.jaxb.books.BooksForm;
+import com.app.model.jaxb.books.BookForm;
+import com.app.model.jaxb.books.BooksForm;
 import com.app.model.Student;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -9,7 +9,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-import java.awt.print.Book;
 import java.util.Collections;
 import java.util.List;
 
