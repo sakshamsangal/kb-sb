@@ -14,15 +14,23 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Service
 public class BcciApiService {
 
+    private final BcciProp bcciProp;
     private final WebClient webClient;
 
-    private final BcciProp bcciProp;
 
-    public Student getBooks() {
+    public Student addBooks() {
 
         return webClient.post()
                 .uri(bcciProp.getGetAllBooks())
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToMono(Student.class)
+                .block();
+    }
+
+    public Student getBooks() {
+        return webClient.get()
+                .uri(bcciProp.getGetAllBooks())
                 .retrieve()
                 .bodyToMono(Student.class)
                 .block();
