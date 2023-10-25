@@ -1,6 +1,6 @@
 package com.app.controller;
 
-import com.app.property.ConfigProp;
+import com.app.property.AppProp;
 import com.app.model.ApplicationResponse;
 import com.app.model.Student;
 import com.app.service.StudentService;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController implements StudentControllerApi {
 
     private final StudentService studentService;
-    private final ConfigProp configProp;
+    private final AppProp appProp;
 
     @PostMapping(Endpoint.ADD_STUDENT)
     @Observed(name = "studentController.addStudent")
@@ -36,7 +36,7 @@ public class StudentController implements StudentControllerApi {
     @Observed(name = "get.micro")
     @GetMapping("/micro")
     public String micro() {
-        return configProp.getMyName()+ " Welcome this endpoint is not secure";
+        return appProp.getMyName()+ " Welcome this endpoint is not secure";
     }
 }
 

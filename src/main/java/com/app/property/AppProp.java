@@ -11,7 +11,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @Getter
 @Setter
 @RefreshScope
-public class ConfigProp {
+public class AppProp {
 
 
     @Value("${my.name}")

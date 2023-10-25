@@ -12,13 +12,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequiredArgsConstructor
 @Slf4j
 @Service
-public class BookService {
+public class BcciApiService {
 
     private final WebClient webClient;
 
     private final BcciProp bcciProp;
 
-    public Student addStud(Student student) {
+    public Student getBooks() {
 
         return webClient.post()
                 .uri(bcciProp.getGetAllBooks())

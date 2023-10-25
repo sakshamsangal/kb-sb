@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class StudentService {
 
-    private final BookService student;
+    private final BcciApiService student;
     private final StudentRepository studentRepository;
 
     @LogExecutionTime("saksham")

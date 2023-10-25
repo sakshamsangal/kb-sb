@@ -1,6 +1,6 @@
 package com.app.handler;
 
-import com.app.exception.AppException;
+import com.app.model.exception.AppException;
 import com.app.model.ApiError;
 import com.app.util.constant.ErrorMessage;
 import lombok.extern.slf4j.Slf4j;

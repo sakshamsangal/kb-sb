@@ -78,6 +78,10 @@ dependencies {
 
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation 'org.json:json:20231013'
+
+
 
 }
 
